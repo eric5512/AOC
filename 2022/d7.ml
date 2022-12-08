@@ -14,4 +14,4 @@ let p2 = ()
 
 let print_result result = ()
 
-let () = read_lines "./inputs/i.txt" |> process_input |> print_result
+let () = read_lines "./inputs/i7.txt" |> process_input |> print_result
