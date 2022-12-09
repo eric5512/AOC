@@ -67,8 +67,8 @@ let p1 tree =
   let dirs = ref MS.empty in
   let add_all n = List.map (fun x -> dirs := MS.update x (fun y -> Some (Option.value y ~default:0 + n)) !dirs) in
   let rec aux acc = function
-    | File (_, size) -> add_all size acc |> ignore; ()
-    | Dir (name, content) -> List.map (fun x -> aux (name::acc) x) content |> ignore; () in
+    | File (_, size) -> add_all size acc |> ignore
+    | Dir (name, content) -> List.map (fun x -> aux (name::acc) x) content |> ignore in
   aux [] tree; !dirs |> MS.filter (fun _ v -> v <= 100000) |> MS.to_seq |> List.of_seq |> List.map snd |> List.fold_left (+) 0
 
 let p2 = ()
